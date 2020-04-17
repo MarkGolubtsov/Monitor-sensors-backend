@@ -1,7 +1,6 @@
 package com.labinvent.test.repository.entity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "types")
@@ -13,9 +12,6 @@ public class Type {
 
     @Column(unique = true, nullable = false)
     private String name;
-
-    @OneToMany(mappedBy="type")
-    private Set<MonitorSensor> monitorSensors;
 
     public long getId() {
         return id;
@@ -35,12 +31,4 @@ public class Type {
         return this;
     }
 
-    public Set<MonitorSensor> getMonitorSensors() {
-        return monitorSensors;
-    }
-
-    public Type setMonitorSensors(Set<MonitorSensor> monitorSensors) {
-        this.monitorSensors = monitorSensors;
-        return this;
-    }
 }
