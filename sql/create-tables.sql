@@ -1,19 +1,19 @@
 CREATE TABLE `range`
 (
-    `id`   int PRIMARY KEY,
+    `id`   int PRIMARY KEY AUTO_INCREMENT,
     `from` int default 0,
     `to`   int default 1
 );
 
 CREATE TABLE `type`
 (
-    `id`   int PRIMARY KEY,
+    `id`   int PRIMARY KEY AUTO_INCREMENT,
     `name` varchar(300) NOT NULL
 );
 
 CREATE TABLE `unit`
 (
-    `id`   int PRIMARY KEY,
+    `id`   int PRIMARY KEY AUTO_INCREMENT,
     `name` varchar(200) NOT NULL
 );
 
