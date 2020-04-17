@@ -31,3 +31,11 @@ CREATE TABLE `monitor_sensors`
     FOREIGN KEY (type_id) REFERENCES `type` (id),
     FOREIGN KEY (unit_id) REFERENCES unit (id)
 );
+
+CREATE TABLE  `user`
+(
+    `id`       int PRIMARY KEY AUTO_INCREMENT,
+    email      varchar(200) UNIQUE NOT NULL,
+    `password` varchar(100),
+    `roles` varchar(100)
+);
