@@ -28,4 +28,13 @@ public class UserServiceImpl implements UserService {
         }
         throw new NotFoundEntityException(NOT_FOUND);
     }
+
+    @Override
+    public UserDTO findByEmail(String email) {
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if (optionalUser.isPresent()) {
+            return UserConverter.toDTO(optionalUser.get());
+        }
+        throw new NotFoundEntityException(NOT_FOUND);
+    }
 }

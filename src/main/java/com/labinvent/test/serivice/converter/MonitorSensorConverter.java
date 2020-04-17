@@ -16,6 +16,7 @@ public class MonitorSensorConverter {
                 .setRangeFrom(monitorSensorDTO.getRangeFrom())
                 .setRangeTo(monitorSensorDTO.getRangeTo())
                 .setModel(monitorSensorDTO.getModel())
+                .setName(monitorSensorDTO.getName())
                 .setUnit(UnitConverter.fromDTO(monitorSensorDTO.getUnitDTO()));
         return monitorSensor;
     }
@@ -29,6 +30,7 @@ public class MonitorSensorConverter {
                 .setRangeTo(monitorSensor.getRangeTo())
                 .setModel(monitorSensor.getModel())
                 .setUnitDTO(UnitConverter.toDTO(monitorSensor.getUnit()))
+                .setName(monitorSensor.getName())
                 .setId(monitorSensor.getId());
         return monitorSensorDTO;
     }
