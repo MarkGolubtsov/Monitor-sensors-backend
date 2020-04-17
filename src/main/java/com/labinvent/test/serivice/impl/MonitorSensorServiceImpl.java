@@ -58,6 +58,11 @@ public class MonitorSensorServiceImpl implements MonitorSensorService {
         monitorSensorRepository.deleteById(id);
     }
 
+    @Override
+    public MonitorSensorDTO update(MonitorSensorDTO entity) {
+        return MonitorSensorConverter.toDTO(monitorSensorRepository.save(MonitorSensorConverter.fromDTO(entity)));
+    }
+
     private Specification<MonitorSensor> builtSpecification(SearchParameters searchParameters) {
         String text = searchParameters.getText();
         Specification<MonitorSensor> specification = (root, query, criteriaBuilder) -> criteriaBuilder.isNotNull(root.get(MonitorSensorProperties.ID));

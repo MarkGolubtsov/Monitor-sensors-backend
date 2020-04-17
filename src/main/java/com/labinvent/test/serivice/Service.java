@@ -12,4 +12,5 @@ public interface Service<T> {
 
     void delete(long id);
 
+    T update(T entity);
 }
