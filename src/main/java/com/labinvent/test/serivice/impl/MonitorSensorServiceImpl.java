@@ -4,6 +4,7 @@ import com.labinvent.test.repository.MonitorSensorRepository;
 import com.labinvent.test.repository.entity.MonitorSensor;
 import com.labinvent.test.repository.specification.MonitorSensorProperties;
 import com.labinvent.test.repository.specification.MonitorSensorSpecificationFactory;
+import com.labinvent.test.serivice.MonitorSensorService;
 import com.labinvent.test.serivice.converter.MonitorSensorConverter;
 import com.labinvent.test.serivice.dto.MonitorSensorDTO;
 import com.labinvent.test.serivice.dto.SearchParameters;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 @Service
-public class MonitorSensorServiceImpl implements com.labinvent.test.serivice.Service<MonitorSensorDTO> {
+public class MonitorSensorServiceImpl implements MonitorSensorService {
 
     private static final String BAD_RANGE = "Range is not valid.";
     private static final String NOT_EXIST_ID = "Not exist monitor sensor  with id = %s";
