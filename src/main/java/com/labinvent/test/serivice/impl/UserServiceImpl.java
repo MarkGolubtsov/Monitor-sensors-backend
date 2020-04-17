@@ -20,14 +20,12 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-
     @Override
-    public UserDTO findByEmail(String email) {
-        Optional<User> optionalUser = userRepository.findByEmail(email);
+    public UserDTO findByEmailAndPassword(String email, String password) {
+        Optional<User> optionalUser = userRepository.findByEmailAndPassword(email, password);
         if (optionalUser.isPresent()) {
             return UserConverter.toDTO(optionalUser.get());
         }
-        throw new NotFoundEntityException("User not found.");
+        throw new NotFoundEntityException(NOT_FOUND);
     }
-
 }

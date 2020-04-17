@@ -21,6 +21,7 @@
     </build>
     <properties>
         <spring-boot-version>2.2.5.RELEASE</spring-boot-version>
+        <spring-security-version>5.3.1.RELEASE</spring-security-version>
     </properties>
 
     <dependencies>
@@ -31,9 +32,21 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring-security-version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>${spring-boot-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.fusionauth</groupId>
+            <artifactId>fusionauth-jwt</artifactId>
+            <version>2.1.1</version>
         </dependency>
 
         <dependency>
