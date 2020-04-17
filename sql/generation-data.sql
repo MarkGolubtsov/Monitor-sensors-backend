@@ -1,20 +1,20 @@
-INSERT INTO type (name)
+INSERT INTO types (name)
 VALUES ('Pressure');
-INSERT INTO type (name)
+INSERT INTO types (name)
 VALUES ('Voltage');
-INSERT INTO type (name)
+INSERT INTO types (name)
 VALUES ('Temperature');
-INSERT INTO type (name)
+INSERT INTO types (name)
 VALUES ('Humidity');
 
 
-INSERT INTO unit (name)
+INSERT INTO units (name)
 VALUES ('bar');
-INSERT INTO unit (name)
+INSERT INTO units (name)
 VALUES ('voltage');
-INSERT INTO unit (name)
+INSERT INTO units (name)
 VALUES ('°С');
-INSERT INTO unit (name)
+INSERT INTO units (name)
 VALUES ('%');
 
 
