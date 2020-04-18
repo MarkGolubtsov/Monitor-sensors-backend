@@ -13,6 +13,7 @@ import com.labinvent.task.serivice.exception.NotFoundEntityException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -40,7 +41,7 @@ public class MonitorSensorServiceImpl implements MonitorSensorService {
 
     @Override
     public Page<MonitorSensorDTO> readAll(SearchParameters parameters) {
-        Pageable paging = PageRequest.of(parameters.getPage(), parameters.getPageSize());
+        Pageable paging = PageRequest.of(parameters.getPage(), parameters.getPageSize(), Sort.by("id"));
         Specification<MonitorSensor> specification = builtSpecification(parameters);
         Page<MonitorSensor> pagedResult = monitorSensorRepository.findAll(specification, paging);
         Page<MonitorSensorDTO> monitorSensorDTOList = pagedResult.map(MonitorSensorConverter::toDTO);
