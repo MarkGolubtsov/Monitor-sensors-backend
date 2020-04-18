@@ -1,5 +1,6 @@
 package com.labinvent.task.serivice.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
@@ -84,6 +85,7 @@ public class MonitorSensorDTO extends EntityDTO {
         return this;
     }
 
+    @JsonProperty("type")
     public TypeDTO getTypeDTO() {
         return typeDTO;
     }
@@ -93,6 +95,7 @@ public class MonitorSensorDTO extends EntityDTO {
         return this;
     }
 
+    @JsonProperty("unit")
     public UnitDTO getUnitDTO() {
         return unitDTO;
     }

@@ -30,14 +30,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(getObjectErrorResponse(exception.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
+
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> accessDenied(AccessDeniedException e) {
         return new ResponseEntity<>(getObjectErrorResponse(ACCESS_DENIED), HttpStatus.FORBIDDEN);
-    }
-
-    @ExceptionHandler(Throwable.class)
-    public ResponseEntity<ErrorResponse> handleOtherException(Throwable exception) {
-        return new ResponseEntity<>(getObjectErrorResponse(exception.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Override

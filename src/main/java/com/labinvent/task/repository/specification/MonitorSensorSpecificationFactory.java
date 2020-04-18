@@ -5,7 +5,7 @@ import com.labinvent.task.repository.entity.Type;
 import com.labinvent.task.repository.entity.Unit;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.ListJoin;
+import javax.persistence.criteria.Join;
 
 public class MonitorSensorSpecificationFactory {
     private MonitorSensorSpecificationFactory() {
@@ -31,14 +31,14 @@ public class MonitorSensorSpecificationFactory {
 
     public static Specification<MonitorSensor> getMonitorSensorsByLikeType(String type) {
         return (root, query, criteriaBuilder) -> {
-            ListJoin<MonitorSensor, Type> certificateTagListJoin = root.joinList(MonitorSensorProperties.TYPE);
+            Join<MonitorSensor, Type> certificateTagListJoin = root.join(MonitorSensorProperties.TYPE);
             return criteriaBuilder.like(criteriaBuilder.lower(certificateTagListJoin.get(MonitorSensorProperties.NAME)), getContainsLikePattern(type).toLowerCase());
         };
     }
 
     public static Specification<MonitorSensor> getMonitorSensorsByLikeUnit(String unit) {
         return (root, query, criteriaBuilder) -> {
-            ListJoin<MonitorSensor, Unit> certificateTagListJoin = root.joinList(MonitorSensorProperties.UNIT);
+            Join<MonitorSensor, Unit> certificateTagListJoin = root.join(MonitorSensorProperties.UNIT);
             return criteriaBuilder.like(criteriaBuilder.lower(certificateTagListJoin.get(MonitorSensorProperties.NAME)), getContainsLikePattern(unit).toLowerCase());
         };
     }

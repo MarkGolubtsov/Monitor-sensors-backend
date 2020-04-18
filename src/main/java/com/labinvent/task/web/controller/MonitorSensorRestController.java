@@ -4,6 +4,7 @@ import com.labinvent.task.serivice.MonitorSensorService;
 import com.labinvent.task.serivice.dto.MonitorSensorDTO;
 import com.labinvent.task.serivice.dto.SearchParameters;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +43,13 @@ public class MonitorSensorRestController {
     public MonitorSensorDTO update(@Valid @RequestBody MonitorSensorDTO dataMonitorSensorDTO, @PathVariable int id) {
         dataMonitorSensorDTO.setId(id);
         return monitorSensorService.create(dataMonitorSensorDTO);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable int id) {
+        monitorSensorService.delete(id);
     }
 
 }

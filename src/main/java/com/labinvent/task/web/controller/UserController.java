@@ -3,6 +3,7 @@ package com.labinvent.task.web.controller;
 import com.labinvent.task.serivice.UserService;
 import com.labinvent.task.serivice.dto.UserDTO;
 import com.labinvent.task.serivice.dto.UserLogin;
+import com.labinvent.task.web.Token;
 import com.labinvent.task.web.security.JwtProperties;
 import io.fusionauth.jwt.Signer;
 import io.fusionauth.jwt.domain.JWT;
@@ -27,9 +28,11 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public String login(@RequestBody UserLogin userLogin) {
+    public Token login(@RequestBody UserLogin userLogin) {
         UserDTO userDTO = userService.findByEmailAndPassword(userLogin.getEmail(), userLogin.getPassword());
-        return generateToken(userDTO.getEmail(), userDTO.getRole());
+        Token token = new Token();
+        token.setToken(generateToken(userDTO.getEmail(), userDTO.getRole()));
+        return token;
     }
 
     private String generateToken(String subject, String role) {
