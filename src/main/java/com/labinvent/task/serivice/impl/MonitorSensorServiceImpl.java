@@ -34,7 +34,7 @@ public class MonitorSensorServiceImpl implements MonitorSensorService {
     @Override
     public MonitorSensorDTO create(MonitorSensorDTO entity) {
         if (entity.getRangeFrom() <= entity.getRangeTo()) {
-            monitorSensorRepository.save(MonitorSensorConverter.fromDTO(entity));
+           return MonitorSensorConverter.toDTO(monitorSensorRepository.save(MonitorSensorConverter.fromDTO(entity)));
         }
         throw new BadEntityException(BAD_RANGE);
     }
