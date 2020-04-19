@@ -53,7 +53,6 @@ public class VerifyTokenFilter implements Filter {
                     LOGGER.error("USER not in db");
                 }
             } catch (JWTException ignored) {
-                LOGGER.error("Bad token");
             }
         }
         chain.doFilter(request, response);
