@@ -32,7 +32,7 @@ public class MonitorSensorRestController {
         return monitorSensorService.create(newMonitorSensorDTO);
     }
 
-    @PreAuthorize(" hasAnyRole('VIEWER','ADMIN')")
+    @PreAuthorize(" hasAnyRole('ADMIN')")
     @GetMapping(value = "/{id}")
     public MonitorSensorDTO readById(@PathVariable int id) {
         return monitorSensorService.read(id);
